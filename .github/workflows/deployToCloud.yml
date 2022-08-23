@@ -32,20 +32,20 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
       
       
-      # - name: Remove old Directory
-      #   run: ssh staging 'cd /home/syslify/ && sudo rm -rf Social-Media-API || true'
+      - name: Remove old Directory
+        run: ssh staging 'cd /home/syslify/ && sudo rm -rf Social-Media-API || true'
 
-      # - name: Checkout the repo on the Production Server
-      #   run: ssh staging "cd /home/syslify/ && git clone https://github.com/SocialMint/Social-Media-API.git || true"
+      - name: Checkout the repo on the Production Server
+        run: ssh staging "cd /home/syslify/ && git clone https://github.com/SocialMint/Social-Media-API.git || true"
            
-      # - name: Install the Application
-      #   run: ssh staging 'cd /home/syslify/Social-Media-API/ && yes|sudo composer install'
+      - name: Install the Application
+        run: ssh staging 'cd /home/syslify/Social-Media-API/ && yes|sudo composer install'
 
-      # - name: Syncing updates to Production
-      #   run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo rsync -av /home/syslify/Social-Media-API/resources/  /var/www/socialmintshare.net/Social-Mint-Api/resources/'
+      - name: Syncing updates to Production
+        run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo rsync -av /home/syslify/Social-Media-API/resources/  /var/www/socialmintshare.net/Social-Media-API/resources/'
 
-      # - name: Syncing updates to Production
-      #   run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo rsync -av /home/syslify/Social-Media-API/public /var/www/socialmintshare.net/Social-Mint-Api/public'
+      - name: Syncing updates to Production
+        run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo rsync -av /home/syslify/Social-Media-API/public /var/www/socialmintshare.net/Social-Media-API/public'
 
-      # - name: Restart Apache to update Production
-      #   run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo systemctl restart apache2'
+      - name: Restart Apache to update Production
+        run: ssh staging 'cd /home/syslify/Social-Media-API/ && sudo systemctl restart apache2'
